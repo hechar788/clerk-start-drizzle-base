@@ -9,6 +9,15 @@ npm install
 npm run start
 ```
 
+Note: You will need to add the .env values
+```bash
+VITE_CLERK_PUBLISHABLE_KEY=<REPLACE_WITH_VITE_CLERK_PUBLISHABLE_KEY>
+CLERK_SECRET_KEY=[REPLACE_WITH_CLERK_SECRET_KEY]
+
+# Database URL for PostgreSQL
+DATABASE_URL="postgresql://username:password@localhost:5432/mydb"
+```
+
 # Building For Production
 
 To build this application for production:
