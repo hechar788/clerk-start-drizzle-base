@@ -9,7 +9,7 @@ npm install
 npm run start
 ```
 
-Note: You will need to add the .env.local values
+Note: You will need to add the .env.local file with the following:
 ```bash
 VITE_CLERK_PUBLISHABLE_KEY=<REPLACE_WITH_VITE_CLERK_PUBLISHABLE_KEY>
 CLERK_SECRET_KEY=[REPLACE_WITH_CLERK_SECRET_KEY]
