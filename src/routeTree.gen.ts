@@ -9,198 +9,144 @@
 // Additionally, you should also exclude this file from your linter and/or formatter to prevent it from being checked or modified.
 
 import { Route as rootRouteImport } from './routes/__root'
+import { Route as ClientAuthedRouteImport } from './routes/_clientAuthed'
 import { Route as IndexRouteImport } from './routes/index'
-import { Route as DemoTanstackQueryRouteImport } from './routes/demo/tanstack-query'
-import { Route as DemoStoreRouteImport } from './routes/demo/store'
-import { Route as DemoDrizzleRouteImport } from './routes/demo/drizzle'
-import { Route as DemoClerkRouteImport } from './routes/demo/clerk'
-import { Route as DemoStartServerFuncsRouteImport } from './routes/demo/start.server-funcs'
-import { Route as DemoStartApiRequestRouteImport } from './routes/demo/start.api-request'
-import { Route as DemoApiTqTodosRouteImport } from './routes/demo/api.tq-todos'
-import { Route as DemoApiNamesRouteImport } from './routes/demo/api.names'
-import { Route as DemoStartSsrIndexRouteImport } from './routes/demo/start.ssr.index'
-import { Route as DemoStartSsrSpaModeRouteImport } from './routes/demo/start.ssr.spa-mode'
-import { Route as DemoStartSsrFullSsrRouteImport } from './routes/demo/start.ssr.full-ssr'
-import { Route as DemoStartSsrDataOnlyRouteImport } from './routes/demo/start.ssr.data-only'
+import { Route as ClientAuthedTanstackQueryRouteImport } from './routes/_clientAuthed/tanstack-query'
+import { Route as ClientAuthedStoreRouteImport } from './routes/_clientAuthed/store'
+import { Route as ClientAuthedDrizzleRouteImport } from './routes/_clientAuthed/drizzle'
+import { Route as ClientAuthedStartServerFuncsRouteImport } from './routes/_clientAuthed/start.server-funcs'
+import { Route as ClientAuthedStartApiRequestRouteImport } from './routes/_clientAuthed/start.api-request'
+import { Route as ClientAuthedApiTqTodosRouteImport } from './routes/_clientAuthed/api.tq-todos'
+import { Route as ClientAuthedApiNamesRouteImport } from './routes/_clientAuthed/api.names'
 
+const ClientAuthedRoute = ClientAuthedRouteImport.update({
+  id: '/_clientAuthed',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const IndexRoute = IndexRouteImport.update({
   id: '/',
   path: '/',
   getParentRoute: () => rootRouteImport,
 } as any)
-const DemoTanstackQueryRoute = DemoTanstackQueryRouteImport.update({
-  id: '/demo/tanstack-query',
-  path: '/demo/tanstack-query',
-  getParentRoute: () => rootRouteImport,
+const ClientAuthedTanstackQueryRoute =
+  ClientAuthedTanstackQueryRouteImport.update({
+    id: '/tanstack-query',
+    path: '/tanstack-query',
+    getParentRoute: () => ClientAuthedRoute,
+  } as any)
+const ClientAuthedStoreRoute = ClientAuthedStoreRouteImport.update({
+  id: '/store',
+  path: '/store',
+  getParentRoute: () => ClientAuthedRoute,
 } as any)
-const DemoStoreRoute = DemoStoreRouteImport.update({
-  id: '/demo/store',
-  path: '/demo/store',
-  getParentRoute: () => rootRouteImport,
+const ClientAuthedDrizzleRoute = ClientAuthedDrizzleRouteImport.update({
+  id: '/drizzle',
+  path: '/drizzle',
+  getParentRoute: () => ClientAuthedRoute,
 } as any)
-const DemoDrizzleRoute = DemoDrizzleRouteImport.update({
-  id: '/demo/drizzle',
-  path: '/demo/drizzle',
-  getParentRoute: () => rootRouteImport,
+const ClientAuthedStartServerFuncsRoute =
+  ClientAuthedStartServerFuncsRouteImport.update({
+    id: '/start/server-funcs',
+    path: '/start/server-funcs',
+    getParentRoute: () => ClientAuthedRoute,
+  } as any)
+const ClientAuthedStartApiRequestRoute =
+  ClientAuthedStartApiRequestRouteImport.update({
+    id: '/start/api-request',
+    path: '/start/api-request',
+    getParentRoute: () => ClientAuthedRoute,
+  } as any)
+const ClientAuthedApiTqTodosRoute = ClientAuthedApiTqTodosRouteImport.update({
+  id: '/api/tq-todos',
+  path: '/api/tq-todos',
+  getParentRoute: () => ClientAuthedRoute,
 } as any)
-const DemoClerkRoute = DemoClerkRouteImport.update({
-  id: '/demo/clerk',
-  path: '/demo/clerk',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const DemoStartServerFuncsRoute = DemoStartServerFuncsRouteImport.update({
-  id: '/demo/start/server-funcs',
-  path: '/demo/start/server-funcs',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const DemoStartApiRequestRoute = DemoStartApiRequestRouteImport.update({
-  id: '/demo/start/api-request',
-  path: '/demo/start/api-request',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const DemoApiTqTodosRoute = DemoApiTqTodosRouteImport.update({
-  id: '/demo/api/tq-todos',
-  path: '/demo/api/tq-todos',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const DemoApiNamesRoute = DemoApiNamesRouteImport.update({
-  id: '/demo/api/names',
-  path: '/demo/api/names',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const DemoStartSsrIndexRoute = DemoStartSsrIndexRouteImport.update({
-  id: '/demo/start/ssr/',
-  path: '/demo/start/ssr/',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const DemoStartSsrSpaModeRoute = DemoStartSsrSpaModeRouteImport.update({
-  id: '/demo/start/ssr/spa-mode',
-  path: '/demo/start/ssr/spa-mode',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const DemoStartSsrFullSsrRoute = DemoStartSsrFullSsrRouteImport.update({
-  id: '/demo/start/ssr/full-ssr',
-  path: '/demo/start/ssr/full-ssr',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const DemoStartSsrDataOnlyRoute = DemoStartSsrDataOnlyRouteImport.update({
-  id: '/demo/start/ssr/data-only',
-  path: '/demo/start/ssr/data-only',
-  getParentRoute: () => rootRouteImport,
+const ClientAuthedApiNamesRoute = ClientAuthedApiNamesRouteImport.update({
+  id: '/api/names',
+  path: '/api/names',
+  getParentRoute: () => ClientAuthedRoute,
 } as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
-  '/demo/clerk': typeof DemoClerkRoute
-  '/demo/drizzle': typeof DemoDrizzleRoute
-  '/demo/store': typeof DemoStoreRoute
-  '/demo/tanstack-query': typeof DemoTanstackQueryRoute
-  '/demo/api/names': typeof DemoApiNamesRoute
-  '/demo/api/tq-todos': typeof DemoApiTqTodosRoute
-  '/demo/start/api-request': typeof DemoStartApiRequestRoute
-  '/demo/start/server-funcs': typeof DemoStartServerFuncsRoute
-  '/demo/start/ssr/data-only': typeof DemoStartSsrDataOnlyRoute
-  '/demo/start/ssr/full-ssr': typeof DemoStartSsrFullSsrRoute
-  '/demo/start/ssr/spa-mode': typeof DemoStartSsrSpaModeRoute
-  '/demo/start/ssr': typeof DemoStartSsrIndexRoute
+  '/drizzle': typeof ClientAuthedDrizzleRoute
+  '/store': typeof ClientAuthedStoreRoute
+  '/tanstack-query': typeof ClientAuthedTanstackQueryRoute
+  '/api/names': typeof ClientAuthedApiNamesRoute
+  '/api/tq-todos': typeof ClientAuthedApiTqTodosRoute
+  '/start/api-request': typeof ClientAuthedStartApiRequestRoute
+  '/start/server-funcs': typeof ClientAuthedStartServerFuncsRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
-  '/demo/clerk': typeof DemoClerkRoute
-  '/demo/drizzle': typeof DemoDrizzleRoute
-  '/demo/store': typeof DemoStoreRoute
-  '/demo/tanstack-query': typeof DemoTanstackQueryRoute
-  '/demo/api/names': typeof DemoApiNamesRoute
-  '/demo/api/tq-todos': typeof DemoApiTqTodosRoute
-  '/demo/start/api-request': typeof DemoStartApiRequestRoute
-  '/demo/start/server-funcs': typeof DemoStartServerFuncsRoute
-  '/demo/start/ssr/data-only': typeof DemoStartSsrDataOnlyRoute
-  '/demo/start/ssr/full-ssr': typeof DemoStartSsrFullSsrRoute
-  '/demo/start/ssr/spa-mode': typeof DemoStartSsrSpaModeRoute
-  '/demo/start/ssr': typeof DemoStartSsrIndexRoute
+  '/drizzle': typeof ClientAuthedDrizzleRoute
+  '/store': typeof ClientAuthedStoreRoute
+  '/tanstack-query': typeof ClientAuthedTanstackQueryRoute
+  '/api/names': typeof ClientAuthedApiNamesRoute
+  '/api/tq-todos': typeof ClientAuthedApiTqTodosRoute
+  '/start/api-request': typeof ClientAuthedStartApiRequestRoute
+  '/start/server-funcs': typeof ClientAuthedStartServerFuncsRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
-  '/demo/clerk': typeof DemoClerkRoute
-  '/demo/drizzle': typeof DemoDrizzleRoute
-  '/demo/store': typeof DemoStoreRoute
-  '/demo/tanstack-query': typeof DemoTanstackQueryRoute
-  '/demo/api/names': typeof DemoApiNamesRoute
-  '/demo/api/tq-todos': typeof DemoApiTqTodosRoute
-  '/demo/start/api-request': typeof DemoStartApiRequestRoute
-  '/demo/start/server-funcs': typeof DemoStartServerFuncsRoute
-  '/demo/start/ssr/data-only': typeof DemoStartSsrDataOnlyRoute
-  '/demo/start/ssr/full-ssr': typeof DemoStartSsrFullSsrRoute
-  '/demo/start/ssr/spa-mode': typeof DemoStartSsrSpaModeRoute
-  '/demo/start/ssr/': typeof DemoStartSsrIndexRoute
+  '/_clientAuthed': typeof ClientAuthedRouteWithChildren
+  '/_clientAuthed/drizzle': typeof ClientAuthedDrizzleRoute
+  '/_clientAuthed/store': typeof ClientAuthedStoreRoute
+  '/_clientAuthed/tanstack-query': typeof ClientAuthedTanstackQueryRoute
+  '/_clientAuthed/api/names': typeof ClientAuthedApiNamesRoute
+  '/_clientAuthed/api/tq-todos': typeof ClientAuthedApiTqTodosRoute
+  '/_clientAuthed/start/api-request': typeof ClientAuthedStartApiRequestRoute
+  '/_clientAuthed/start/server-funcs': typeof ClientAuthedStartServerFuncsRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
   fullPaths:
     | '/'
-    | '/demo/clerk'
-    | '/demo/drizzle'
-    | '/demo/store'
-    | '/demo/tanstack-query'
-    | '/demo/api/names'
-    | '/demo/api/tq-todos'
-    | '/demo/start/api-request'
-    | '/demo/start/server-funcs'
-    | '/demo/start/ssr/data-only'
-    | '/demo/start/ssr/full-ssr'
-    | '/demo/start/ssr/spa-mode'
-    | '/demo/start/ssr'
+    | '/drizzle'
+    | '/store'
+    | '/tanstack-query'
+    | '/api/names'
+    | '/api/tq-todos'
+    | '/start/api-request'
+    | '/start/server-funcs'
   fileRoutesByTo: FileRoutesByTo
   to:
     | '/'
-    | '/demo/clerk'
-    | '/demo/drizzle'
-    | '/demo/store'
-    | '/demo/tanstack-query'
-    | '/demo/api/names'
-    | '/demo/api/tq-todos'
-    | '/demo/start/api-request'
-    | '/demo/start/server-funcs'
-    | '/demo/start/ssr/data-only'
-    | '/demo/start/ssr/full-ssr'
-    | '/demo/start/ssr/spa-mode'
-    | '/demo/start/ssr'
+    | '/drizzle'
+    | '/store'
+    | '/tanstack-query'
+    | '/api/names'
+    | '/api/tq-todos'
+    | '/start/api-request'
+    | '/start/server-funcs'
   id:
     | '__root__'
     | '/'
-    | '/demo/clerk'
-    | '/demo/drizzle'
-    | '/demo/store'
-    | '/demo/tanstack-query'
-    | '/demo/api/names'
-    | '/demo/api/tq-todos'
-    | '/demo/start/api-request'
-    | '/demo/start/server-funcs'
-    | '/demo/start/ssr/data-only'
-    | '/demo/start/ssr/full-ssr'
-    | '/demo/start/ssr/spa-mode'
-    | '/demo/start/ssr/'
+    | '/_clientAuthed'
+    | '/_clientAuthed/drizzle'
+    | '/_clientAuthed/store'
+    | '/_clientAuthed/tanstack-query'
+    | '/_clientAuthed/api/names'
+    | '/_clientAuthed/api/tq-todos'
+    | '/_clientAuthed/start/api-request'
+    | '/_clientAuthed/start/server-funcs'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
-  DemoClerkRoute: typeof DemoClerkRoute
-  DemoDrizzleRoute: typeof DemoDrizzleRoute
-  DemoStoreRoute: typeof DemoStoreRoute
-  DemoTanstackQueryRoute: typeof DemoTanstackQueryRoute
-  DemoApiNamesRoute: typeof DemoApiNamesRoute
-  DemoApiTqTodosRoute: typeof DemoApiTqTodosRoute
-  DemoStartApiRequestRoute: typeof DemoStartApiRequestRoute
-  DemoStartServerFuncsRoute: typeof DemoStartServerFuncsRoute
-  DemoStartSsrDataOnlyRoute: typeof DemoStartSsrDataOnlyRoute
-  DemoStartSsrFullSsrRoute: typeof DemoStartSsrFullSsrRoute
-  DemoStartSsrSpaModeRoute: typeof DemoStartSsrSpaModeRoute
-  DemoStartSsrIndexRoute: typeof DemoStartSsrIndexRoute
+  ClientAuthedRoute: typeof ClientAuthedRouteWithChildren
 }
 
 declare module '@tanstack/react-router' {
   interface FileRoutesByPath {
+    '/_clientAuthed': {
+      id: '/_clientAuthed'
+      path: ''
+      fullPath: ''
+      preLoaderRoute: typeof ClientAuthedRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/': {
       id: '/'
       path: '/'
@@ -208,107 +154,85 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof IndexRouteImport
       parentRoute: typeof rootRouteImport
     }
-    '/demo/tanstack-query': {
-      id: '/demo/tanstack-query'
-      path: '/demo/tanstack-query'
-      fullPath: '/demo/tanstack-query'
-      preLoaderRoute: typeof DemoTanstackQueryRouteImport
-      parentRoute: typeof rootRouteImport
+    '/_clientAuthed/tanstack-query': {
+      id: '/_clientAuthed/tanstack-query'
+      path: '/tanstack-query'
+      fullPath: '/tanstack-query'
+      preLoaderRoute: typeof ClientAuthedTanstackQueryRouteImport
+      parentRoute: typeof ClientAuthedRoute
     }
-    '/demo/store': {
-      id: '/demo/store'
-      path: '/demo/store'
-      fullPath: '/demo/store'
-      preLoaderRoute: typeof DemoStoreRouteImport
-      parentRoute: typeof rootRouteImport
+    '/_clientAuthed/store': {
+      id: '/_clientAuthed/store'
+      path: '/store'
+      fullPath: '/store'
+      preLoaderRoute: typeof ClientAuthedStoreRouteImport
+      parentRoute: typeof ClientAuthedRoute
     }
-    '/demo/drizzle': {
-      id: '/demo/drizzle'
-      path: '/demo/drizzle'
-      fullPath: '/demo/drizzle'
-      preLoaderRoute: typeof DemoDrizzleRouteImport
-      parentRoute: typeof rootRouteImport
+    '/_clientAuthed/drizzle': {
+      id: '/_clientAuthed/drizzle'
+      path: '/drizzle'
+      fullPath: '/drizzle'
+      preLoaderRoute: typeof ClientAuthedDrizzleRouteImport
+      parentRoute: typeof ClientAuthedRoute
     }
-    '/demo/clerk': {
-      id: '/demo/clerk'
-      path: '/demo/clerk'
-      fullPath: '/demo/clerk'
-      preLoaderRoute: typeof DemoClerkRouteImport
-      parentRoute: typeof rootRouteImport
+    '/_clientAuthed/start/server-funcs': {
+      id: '/_clientAuthed/start/server-funcs'
+      path: '/start/server-funcs'
+      fullPath: '/start/server-funcs'
+      preLoaderRoute: typeof ClientAuthedStartServerFuncsRouteImport
+      parentRoute: typeof ClientAuthedRoute
     }
-    '/demo/start/server-funcs': {
-      id: '/demo/start/server-funcs'
-      path: '/demo/start/server-funcs'
-      fullPath: '/demo/start/server-funcs'
-      preLoaderRoute: typeof DemoStartServerFuncsRouteImport
-      parentRoute: typeof rootRouteImport
+    '/_clientAuthed/start/api-request': {
+      id: '/_clientAuthed/start/api-request'
+      path: '/start/api-request'
+      fullPath: '/start/api-request'
+      preLoaderRoute: typeof ClientAuthedStartApiRequestRouteImport
+      parentRoute: typeof ClientAuthedRoute
     }
-    '/demo/start/api-request': {
-      id: '/demo/start/api-request'
-      path: '/demo/start/api-request'
-      fullPath: '/demo/start/api-request'
-      preLoaderRoute: typeof DemoStartApiRequestRouteImport
-      parentRoute: typeof rootRouteImport
+    '/_clientAuthed/api/tq-todos': {
+      id: '/_clientAuthed/api/tq-todos'
+      path: '/api/tq-todos'
+      fullPath: '/api/tq-todos'
+      preLoaderRoute: typeof ClientAuthedApiTqTodosRouteImport
+      parentRoute: typeof ClientAuthedRoute
     }
-    '/demo/api/tq-todos': {
-      id: '/demo/api/tq-todos'
-      path: '/demo/api/tq-todos'
-      fullPath: '/demo/api/tq-todos'
-      preLoaderRoute: typeof DemoApiTqTodosRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/demo/api/names': {
-      id: '/demo/api/names'
-      path: '/demo/api/names'
-      fullPath: '/demo/api/names'
-      preLoaderRoute: typeof DemoApiNamesRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/demo/start/ssr/': {
-      id: '/demo/start/ssr/'
-      path: '/demo/start/ssr'
-      fullPath: '/demo/start/ssr'
-      preLoaderRoute: typeof DemoStartSsrIndexRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/demo/start/ssr/spa-mode': {
-      id: '/demo/start/ssr/spa-mode'
-      path: '/demo/start/ssr/spa-mode'
-      fullPath: '/demo/start/ssr/spa-mode'
-      preLoaderRoute: typeof DemoStartSsrSpaModeRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/demo/start/ssr/full-ssr': {
-      id: '/demo/start/ssr/full-ssr'
-      path: '/demo/start/ssr/full-ssr'
-      fullPath: '/demo/start/ssr/full-ssr'
-      preLoaderRoute: typeof DemoStartSsrFullSsrRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/demo/start/ssr/data-only': {
-      id: '/demo/start/ssr/data-only'
-      path: '/demo/start/ssr/data-only'
-      fullPath: '/demo/start/ssr/data-only'
-      preLoaderRoute: typeof DemoStartSsrDataOnlyRouteImport
-      parentRoute: typeof rootRouteImport
+    '/_clientAuthed/api/names': {
+      id: '/_clientAuthed/api/names'
+      path: '/api/names'
+      fullPath: '/api/names'
+      preLoaderRoute: typeof ClientAuthedApiNamesRouteImport
+      parentRoute: typeof ClientAuthedRoute
     }
   }
 }
 
+interface ClientAuthedRouteChildren {
+  ClientAuthedDrizzleRoute: typeof ClientAuthedDrizzleRoute
+  ClientAuthedStoreRoute: typeof ClientAuthedStoreRoute
+  ClientAuthedTanstackQueryRoute: typeof ClientAuthedTanstackQueryRoute
+  ClientAuthedApiNamesRoute: typeof ClientAuthedApiNamesRoute
+  ClientAuthedApiTqTodosRoute: typeof ClientAuthedApiTqTodosRoute
+  ClientAuthedStartApiRequestRoute: typeof ClientAuthedStartApiRequestRoute
+  ClientAuthedStartServerFuncsRoute: typeof ClientAuthedStartServerFuncsRoute
+}
+
+const ClientAuthedRouteChildren: ClientAuthedRouteChildren = {
+  ClientAuthedDrizzleRoute: ClientAuthedDrizzleRoute,
+  ClientAuthedStoreRoute: ClientAuthedStoreRoute,
+  ClientAuthedTanstackQueryRoute: ClientAuthedTanstackQueryRoute,
+  ClientAuthedApiNamesRoute: ClientAuthedApiNamesRoute,
+  ClientAuthedApiTqTodosRoute: ClientAuthedApiTqTodosRoute,
+  ClientAuthedStartApiRequestRoute: ClientAuthedStartApiRequestRoute,
+  ClientAuthedStartServerFuncsRoute: ClientAuthedStartServerFuncsRoute,
+}
+
+const ClientAuthedRouteWithChildren = ClientAuthedRoute._addFileChildren(
+  ClientAuthedRouteChildren,
+)
+
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
-  DemoClerkRoute: DemoClerkRoute,
-  DemoDrizzleRoute: DemoDrizzleRoute,
-  DemoStoreRoute: DemoStoreRoute,
-  DemoTanstackQueryRoute: DemoTanstackQueryRoute,
-  DemoApiNamesRoute: DemoApiNamesRoute,
-  DemoApiTqTodosRoute: DemoApiTqTodosRoute,
-  DemoStartApiRequestRoute: DemoStartApiRequestRoute,
-  DemoStartServerFuncsRoute: DemoStartServerFuncsRoute,
-  DemoStartSsrDataOnlyRoute: DemoStartSsrDataOnlyRoute,
-  DemoStartSsrFullSsrRoute: DemoStartSsrFullSsrRoute,
-  DemoStartSsrSpaModeRoute: DemoStartSsrSpaModeRoute,
-  DemoStartSsrIndexRoute: DemoStartSsrIndexRoute,
+  ClientAuthedRoute: ClientAuthedRouteWithChildren,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
